@@ -144,5 +144,5 @@ EMAIL_HOST_PASSWORD = 'flybird5!'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-DEFAULT_FROM_EMAIL = 'alsdf <noreply@example.com>'
+DEFAULT_FROM_EMAIL = 'Local Library <noreply@example.com>'
 
