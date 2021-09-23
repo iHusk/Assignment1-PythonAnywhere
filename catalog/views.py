@@ -34,6 +34,24 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
+def reset(request):
+    subject = 'Password reset for {}'.format(request.user)
+    message = '''Someone asked for password reset for email {{ email }}. Follow the link below:
+
+                {{ protocol }}://{{ domain }}{% url "password_reset_confirm" uidb64=uid token=token %}
+
+                Your username, in case you've forgotten: {{ user.get_username }}'''
+
+    user = request.user
+    user_email = user.email
+
+    try:
+        send_mail(subject, message, 'devtest4390@gmail.com', [user_email])
+        sent = True
+    except:
+        print("ERROR - Email not sent")
+
+
 class BookListView(generic.ListView):
     model = Book
     paginate_by = 2
